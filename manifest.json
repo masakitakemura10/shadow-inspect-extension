@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Shadow DOM Inspector (Internal)",
+  "version": "0.1.0",
+  "description": "Shadow DOM / WebComponent inspector for internal debugging (React Portal compatible)",
+  "permissions": ["scripting", "tabs", "webNavigation"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "icon.jpg",
+    "48": "icon.jpg",
+    "128": "icon.jpg"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.jpg",
+      "48": "icon.jpg",
+      "128": "icon.jpg"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["scanner.js"],
+      "world": "MAIN",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "world": "ISOLATED",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "devtools_page": "devtools.html"
+}

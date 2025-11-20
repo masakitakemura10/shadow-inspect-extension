@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <div class="devtools-container">
+    <div class="header">
+      <div class="actions left">
+          <button id="inspect-btn" title="Select an element in the page to inspect it">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M2 2h12v12H2V2zm1 1v10h10V3H3z"/>
+              <path d="M7 7h2v2H7V7z"/>
+              <path d="M8 1L7 0h2l-1 1zM15 8l1-1v2l-1-1zM8 15l1 1H7l1-1zM1 8L0 9V7l1 1z"/>
+            </svg>
+          </button>
+      </div>
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search (Coming Soon)" disabled>
+      </div>
+      <div class="actions right">
+        <button id="scan-btn" title="Reload/Scan">🔄</button>
+      </div>
+    </div>
+    <div class="help-bar">
+      ツリーをホバーでハイライト / クリックで選択
+    </div>
+    <div class="split-pane">
+      <div id="tree-pane" class="pane">
+        <div id="tree-root"></div>
+      </div>
+      <div class="resizer" id="drag-handle"></div>
+      <div id="details-pane" class="pane">
+        <div class="details-header">
+          <div class="details-title">Props</div>
+        </div>
+        <div id="props-content">
+          <div class="empty-state">Select a component to view details.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="footer">
+      <span class="stat-item">Nodes: <span id="node-count">0</span></span>
+      <span class="separator">|</span>
+      <span class="stat-item">Shadows: <span id="shadow-count">0</span></span>
+    </div>
+  </div>
+  <script src="panel.js"></script>
+</body>
+</html>
